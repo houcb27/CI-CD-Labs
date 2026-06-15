@@ -1,0 +1,29 @@
+name: CI CD Assignment 1 
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest 
+
+    steps: 
+      - name: checkout code 
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      
+      - name: Run linting 
+        run: |
+          pip install flake8
+          flake8 .
+      
+      - name: Run unit test
+        run: |
+          pip install pytest
+          pytest .
+      
+      - name: Docker Build
+        run: docker build .
+        
