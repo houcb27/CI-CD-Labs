@@ -8,6 +8,8 @@ jobs:
     steps: 
       - name: checkout code 
         uses: actions/checkout@v2
+        with:
+          submodueles: false
 
       - name: Set up Python
         uses: actions/setup-python@v5
