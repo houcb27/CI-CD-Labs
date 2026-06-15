@@ -27,5 +27,5 @@ jobs:
           pytest .
       
       - name: Docker Build
-        run: docker build .
+        run: docker build "chapter 4"
         
